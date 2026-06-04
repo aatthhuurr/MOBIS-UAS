@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://tools.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="4dp"
+    android:layout_marginVertical="8dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="3dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- KELOMPOK UTAMA (DILIHAT AWAL) -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- 1. IKON STATUS / KATEGORI (Dari Soal) -->
+            <ImageView
+                android:id="@+id/imgIkonStatus"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:contentDescription="Ikon Status"
+                android:src="@android:drawable/ic_dialog_alert"
+                app:tint="@color/blue_atma_luhur" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/imgIkonStatus"
+                android:layout_toStartOf="@id/layoutUpvote"
+                android:layout_marginStart="12dp"
+                android:orientation="vertical">
+
+                <!-- 2. JUDUL PENGADUAN (Dari Soal) -->
+                <TextView
+                    android:id="@+id/txtJudulPengaduan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Polusi Air Sungai"
+                    android:textColor="@color/blue_atma_luhur"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <!-- 3. STATUS LAPORAN (Dari Soal) -->
+                <TextView
+                    android:id="@+id/txtStatusLaporan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Status: MENUNGGU TANGGAPAN"
+                    android:textColor="#856404"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+                <!-- 4. KATEGORI LAPORAN (Dari Soal) -->
+                <TextView
+                    android:id="@+id/txtKategoriLaporan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="Kategori: Gangguan Lingkungan"
+                    android:textColor="#6C757D"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <!-- SISTEM UPVOTE (Fitur Nilai Sempurna) -->
+            <LinearLayout
+                android:id="@+id/layoutUpvote"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:gravity="center"
+                android:orientation="vertical">
+                <ImageButton
+                    android:id="@+id/btnUpvote"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:background="?android:attr/selectableItemBackgroundBorderless"
+                    android:src="@android:drawable/btn_star_big_off" />
+                <TextView
+                    android:id="@+id/txtUpvoteCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="24"
+                    android:textSize="11sp"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+        </RelativeLayout>
+
+        <!-- AREA LUASAN YANG BISA DI-EXPAND (DILIHAT PAS KARTU DIKLIK) -->
+        <LinearLayout
+            android:id="@+id/layoutExpandableArea"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="12dp"
+            android:visibility="visible"> <!-- Nanti di-set GONE secara default oleh Java -->
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#E9ECEF"
+                android:layout_marginBottom="12dp"/>
+
+            <!-- 5. TANGGAPAN ADMIN (Dari Soal) -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tanggapan Admin:"
+                android:textStyle="bold"
+                android:textColor="@color/blue_atma_luhur"
+                android:textSize="13sp" />
+            <TextView
+                android:id="@+id/txtTanggapanAdmin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Terima kasih atas laporannya. Tim kami sudah menuju lokasi..."
+                android:textColor="#495057"
+                android:textSize="13sp" />
+
+            <!-- 6. TANGGAL PELAPORAN (Dari Soal) -->
+            <TextView
+                android:id="@+id/txtTanggalPelaporan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="Dilapor: 15 Juni 2026, 09:00:12 WIB"
+                android:textColor="#6C757D"
+                android:textSize="12sp" />
+
+            <!-- 7. TANGGAL DITANGGAPI (Dari Soal) -->
+            <TextView
+                android:id="@+id/txtTanggalDitanggapi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="Ditanggapi: 17 Juni 2026, 14:45:11 WIB"
+                android:textColor="#6C757D"
+                android:textSize="12sp" />
+
+            <!-- MEDIA PREVIEW INTEGRASI FOTO & VIDEO (Fitur Nilai Sempurna) -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="Bukti Media Lapangan:"
+                android:textStyle="bold"
+                android:textSize="13sp" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:layout_marginTop="6dp">
+
+                <!-- Tempat muter Video -->
+                <VideoView
+                    android:id="@+id/videoPreview"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="gone" />
+
+                <!-- Tempat nampilin Foto penuh -->
+                <ImageView
+                    android:id="@+id/imgFotoPreview"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/kamera" />
+            </FrameLayout>
+
+            <!-- TOMBOL CETAK PDF & SHARE WHATSAPP -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:orientation="horizontal"
+                android:gravity="end">
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnExportPdf"
+                    style="@style/Widget.Material3.Button.TextButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="EXPORT PDF"
+                    app:icon="@android:drawable/ic_menu_save" />
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnShare"
+                    style="@style/Widget.Material3.Button.TextButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="SHARE"
+                    app:icon="@android:drawable/ic_menu_share" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
