@@ -124,6 +124,21 @@
                 app:iconTint="@color/blue_atma_luhur"
                 app:strokeColor="@color/blue_atma_luhur" />
 
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginTop="12dp"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="2dp">
+
+                <fragment
+                    android:id="@+id/mapFragment"
+                    android:name="com.google.android.gms.maps.SupportMapFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    tools:context=".PelaporanActivity" />
+            </androidx.cardview.widget.CardView>
+
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/layoutKronologis"
                 style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
@@ -142,47 +157,56 @@
                     android:inputType="textMultiLine" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <RelativeLayout
-                android:layout_width="match_parent"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp">
+                android:layout_marginTop="16dp"
+                android:text="BUKTI DOKUMENTASI"
+                android:textColor="@color/blue_atma_luhur"
+                android:textSize="12sp"
+                android:textStyle="bold" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_centerVertical="true"
-                    android:text="BUKTI FOTO"
-                    android:textColor="@color/blue_atma_luhur"
-                    android:textSize="12sp"
-                    android:textStyle="bold" />
-
-                <ImageButton
-                    android:id="@+id/btnAddPhoto"
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:layout_alignParentEnd="true"
-                    android:background="?android:attr/selectableItemBackgroundBorderless"
-                    android:contentDescription="Tambah Foto"
-                    android:src="@android:drawable/ic_input_add"
-                    app:tint="@color/blue_atma_luhur" />
-            </RelativeLayout>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnUploadMedia"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="6dp"
+                android:text="UPLOAD FOTO / VIDEO"
+                android:textColor="@color/blue_atma_luhur"
+                app:icon="@android:drawable/ic_menu_camera"
+                app:iconTint="@color/blue_atma_luhur"
+                app:strokeColor="@color/blue_atma_luhur" />
 
             <androidx.cardview.widget.CardView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_marginTop="8dp"
+                android:id="@+id/cardMediaPreview"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:layout_marginTop="12dp"
+                android:visibility="gone"
                 app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="8dp"
                 app:cardElevation="2dp">
 
-                <ImageView
-                    android:id="@+id/imgBuktiPreview"
+                <FrameLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:contentDescription="Pratinjau Bukti"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/kamera" />
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/imgBuktiPreview"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="Pratinjau Foto"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/kamera" />
+
+                    <VideoView
+                        android:id="@+id/videoBuktiPreview"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:visibility="gone" />
+                </FrameLayout>
             </androidx.cardview.widget.CardView>
 
             <com.google.android.material.button.MaterialButton

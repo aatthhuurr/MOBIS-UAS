@@ -20,11 +20,12 @@ public class LoginActivity extends AppCompatActivity {
     private TextInputEditText edtNoHp, edtPassword;
     private MaterialButton btnLogin;
 
-    // 2. Fitur Tambahan (Checkbox Ingat Saya)
+    // 2. Fitur Tambahan (Checkbox Ingat Saya & Tombol Google Jenis Baru)
     private MaterialCheckBox chkRememberMe;
+    private MaterialButton btnGoogleLogin; // Diubah ke MaterialButton biar sinkron gess!
 
-    // 3. MODAL DEKLARASI TOMBOL SHORTCUT BUAT TIM BACK-END:
-    private ImageButton btnGoogleLogin, btnFingerprint, btnFaceId;
+    // 3. MODAL DEKLARASI TOMBOL SHORTCUT BIOMETRIK BUAT TIM BACK-END:
+    private ImageButton btnFingerprint, btnFaceId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +44,7 @@ public class LoginActivity extends AppCompatActivity {
         // TUGAS BACK-END TIM:
         // Silakan lanjutkan casting findViewById dan logika onClick API di bawah nih ok ges!
         // Semua komponen di atas (edtNoHp, edtPassword, btnLogin, chkRememberMe,
-        // btnGoogleLogin, btnFingerprint, btnFaceId) lah siap di eksekusi.
+        // btnGoogleLogin, btnFingerprint, btnFaceId) telah siap dieksekusi.
         // ======================================================================
 
     }
