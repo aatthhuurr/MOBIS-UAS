@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://tools.android.com/tools"
+    android:id="@+id/layoutMainLogin"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="24dp"
+    android:background="@color/white"
+    tools:context=".LoginActivity">
+
+    <!-- Kolom Input Nomor HP -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layoutNoHp"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:hint="Nomor Handphone"
+        app:boxStrokeColor="@color/blue_atma_luhur"
+        app:hintTextColor="@color/blue_atma_luhur"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtNoHp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="phone"
+            android:textColor="@color/blue_atma_luhur" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Kolom Input Password -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layoutPassword"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:hint="Password"
+        app:boxStrokeColor="@color/blue_atma_luhur"
+        app:hintTextColor="@color/blue_atma_luhur"
+        app:passwordToggleEnabled="true"
+        app:passwordToggleTint="@color/blue_atma_luhur"
+        app:layout_constraintTop_toBottomOf="@+id/layoutNoHp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:textColor="@color/blue_atma_luhur" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Tombol Login Utama -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnLogin"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginTop="24dp"
+        android:text="MASUK KE APLIKASI"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:backgroundTint="@color/blue_atma_luhur"
+        app:cornerRadius="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/layoutPassword" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
