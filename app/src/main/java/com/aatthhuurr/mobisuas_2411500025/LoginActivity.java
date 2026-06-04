@@ -9,18 +9,22 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-// Import komponen biar dak error
+// Import komponen material design agar tidak error
 import com.google.android.material.button.MaterialButton;
+import com.google.android.material.checkbox.MaterialCheckBox;
 import com.google.android.material.textfield.TextInputEditText;
 
 public class LoginActivity extends AppCompatActivity {
 
-    // Komponen Input & Tombol Utama
+    // 1. Komponen Input & Tombol Utama
     private TextInputEditText edtNoHp, edtPassword;
     private MaterialButton btnLogin;
 
-    // MODAL DEKLARASI BIOMETRIK BUAT TIM BACK-END:
-    private ImageButton btnFingerprint, btnFaceId;
+    // 2. Fitur Tambahan (Checkbox Ingat Saya)
+    private MaterialCheckBox chkRememberMe;
+
+    // 3. MODAL DEKLARASI TOMBOL SHORTCUT BUAT TIM BACK-END:
+    private ImageButton btnGoogleLogin, btnFingerprint, btnFaceId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +32,7 @@ public class LoginActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_login);
 
-        // Kode default bawaan Android Studio Quail untuk padding layar
+        // Kode default bawaan Android Studio Quail untuk padding layar modern
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.layoutMainLogin), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -37,7 +41,9 @@ public class LoginActivity extends AppCompatActivity {
 
         // ======================================================================
         // TUGAS BACK-END TIM:
-        //lanjutkan casting findViewById dan logika onClick API di bawah nih ok ges!
+        // Silakan lanjutkan casting findViewById dan logika onClick API di bawah nih ok ges!
+        // Semua komponen di atas (edtNoHp, edtPassword, btnLogin, chkRememberMe,
+        // btnGoogleLogin, btnFingerprint, btnFaceId) lah siap di eksekusi.
         // ======================================================================
 
     }
