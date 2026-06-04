@@ -9,13 +9,13 @@
     android:background="#F8F9FA"
     tools:context=".RiwayatActivity">
 
-    <!-- HEADER / TOOLBAR UTAMA -->
+    <!-- HEADER / TOOLBAR -->
     <LinearLayout
         android:id="@+id/layoutHeader"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
-        android:elevation="4dp"
+        android:elevation="2dp"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:padding="16dp"
@@ -40,93 +40,57 @@
             android:textStyle="bold" />
     </LinearLayout>
 
-    <!-- AREA SEARCH BAR -->
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/layoutSearch"
-        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+    <!-- AREA SEARCH & FILTER (Berdampingan Sesuai Desain Tim) -->
+    <LinearLayout
+        android:id="@+id/layoutSearchArea"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="16dp"
-        android:hint="Cari judul pengaduan..."
-        app:startIconDrawable="@android:drawable/ic_menu_search"
-        app:boxStrokeColor="@color/blue_atma_luhur"
-        app:hintTextColor="@color/blue_atma_luhur"
+        android:orientation="horizontal"
+        android:paddingHorizontal="16dp"
+        android:paddingTop="16dp"
+        android:gravity="center_vertical"
         app:layout_constraintTop_toBottomOf="@+id/layoutHeader">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edtSearch"
-            android:layout_width="match_parent"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layoutSearch"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:inputType="text" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_weight="1"
+            android:hint="Cari Laporan..."
+            app:startIconDrawable="@android:drawable/ic_menu_search"
+            app:boxStrokeColor="@color/blue_atma_luhur"
+            app:hintTextColor="@color/blue_atma_luhur">
 
-    <!-- FILTER CHIPS (Fitur Nilai Sempurna) -->
-    <HorizontalScrollView
-        android:id="@+id/scrollChips"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:scrollbars="none"
-        android:paddingHorizontal="16dp"
-        app:layout_constraintTop_toBottomOf="@+id/layoutSearch">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtSearch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.chip.ChipGroup
-            android:id="@+id/chipGroupStatus"
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnFilter"
+            style="@style/Widget.Material3.Button.OutlinedButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:singleSelection="true">
+            android:layout_marginStart="12dp"
+            android:text="FILTER"
+            android:textColor="@color/blue_atma_luhur"
+            app:strokeColor="@color/blue_atma_luhur"
+            app:icon="@android:drawable/ic_menu_manage"
+            app:iconTint="@color/blue_atma_luhur" />
+    </LinearLayout>
 
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chipSemua"
-                style="@style/Widget.Material3.Chip.Filter"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Semua"
-                android:checked="true" />
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chipMenunggu"
-                style="@style/Widget.Material3.Chip.Filter"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Menunggu Tanggapan" />
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chipDiproses"
-                style="@style/Widget.Material3.Chip.Filter"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Diproses" />
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chipSelesai"
-                style="@style/Widget.Material3.Chip.Filter"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Selesai" />
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chipDitolak"
-                style="@style/Widget.Material3.Chip.Filter"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Ditolak" />
-        </com.google.android.material.chip.ChipGroup>
-    </HorizontalScrollView>
-
-    <!-- PULL TO REFRESH WIDGET -->
-    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-        android:id="@+id/swipeRefresh"
+    <!-- LIST DAFTAR RECYCLERVIEW -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvRiwayat"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="12dp"
-        app:layout_constraintTop_toBottomOf="@+id/scrollChips"
-        app:layout_constraintBottom_toBottomOf="parent">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvRiwayat"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:paddingHorizontal="16dp"
-            android:clipToPadding="false"
-            tools:listitem="@layout/item_riwayat" />
-    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+        android:clipToPadding="false"
+        tools:listitem="@layout/item_riwayat"
+        app:layout_constraintTop_toBottomOf="@+id/layoutSearchArea"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
