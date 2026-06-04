@@ -1,6 +1,8 @@
 package com.aatthhuurr.mobisuas_2411500025;
 
 import android.os.Bundle;
+import android.widget.ImageButton;
+
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
@@ -13,8 +15,12 @@ import com.google.android.material.textfield.TextInputEditText;
 
 public class LoginActivity extends AppCompatActivity {
 
+    // Komponen Input & Tombol Utama
     private TextInputEditText edtNoHp, edtPassword;
     private MaterialButton btnLogin;
+
+    // MODAL DEKLARASI BIOMETRIK BUAT TIM BACK-END:
+    private ImageButton btnFingerprint, btnFaceId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
