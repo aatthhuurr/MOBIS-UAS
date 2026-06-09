@@ -11,7 +11,7 @@ import com.google.android.material.textfield.TextInputEditText;
 public class PelaporanActivity extends AppCompatActivity {
 
     // MODAL VARIABEL RESMI UNTUK TIM BACK-END:
-    private ImageButton btnBack, btnAddPhoto;
+    private ImageButton btnBack, btnAddPhoto; // Catatan tim: 'btnAddPhoto' digunakan untuk memegang ID 'btnUploadMedia' di XML
     private TextInputEditText edtJudul, edtSearchMaps, edtKronologis;
     private AutoCompleteTextView dropKategori;
     private MaterialButton btnGetLocation, btnLaporkan;
@@ -23,14 +23,29 @@ public class PelaporanActivity extends AppCompatActivity {
         setContentView(R.layout.activity_pelaporan);
 
         // ======================================================================
-        // TUGAS BACK-END TIM:
-        // 1. Lakukan casting findViewById untuk semua komponen di atas.
-        // 2. Buat ArrayAdapter string berisi kategori (Tambang Ilegal, Kebakaran, dll)
-        //    lalu set ke dropKategori.
-        // 3. Fungsikan btnAddPhoto untuk memunculkan pilihan (Kamera vs Galeri)
-        //    dan set hasilnya ke imgBuktiPreview gess!
-        // 4. Integrasikan Maps SDK / FusedLocationProvider di btnGetLocation.
-        // 5. Hubungkan btnLaporkan ke API kirim data pengaduan ke database!
+        // TUGAS BACK-END TIM (PANDUAN PEMBAGIAN TUGAS):
+        //
+        // TODO 1: Lakukan casting menggunakan findViewById() untuk menghubungkan
+        //         semua variabel global di atas dengan ID komponen dari XML.
+        //         (Khusus 'btnAddPhoto', hubungkan ke ID 'btnUploadMedia').
+        //
+        // TODO 2: Buat ArrayAdapter<String> berisi daftar kategori pengaduan
+        //         (misal: Tambang Ilegal, Polusi, Kebakaran, dll), lalu pasang
+        //         adapter tersebut ke komponen 'dropKategori'.
+        //
+        // TODO 3: Fungsikan 'btnAddPhoto' (Upload Media) dengan Intent Kamera atau
+        //         Galeri. Jika berhasil mengambil gambar, munculkan wadah
+        //         'cardMediaPreview' menjadi VISIBLE dan set gambarnya ke 'imgBuktiPreview'.
+        //
+        // TODO 4: Integrasikan Google Maps SDK / FusedLocationProviderClient pada
+        //         'btnGetLocation' untuk mengambil koordinat GPS terkini dan
+        //         mengarahkan pin kamera pada 'mapFragment'.
+        //
+        // TODO 5: Hubungkan 'btnLaporkan' ke logika API/Database untuk mengirimkan
+        //         kumpulan data string form beserta file gambar dokumentasi.
+        //
+        // TODO 6: Fungsikan 'btnBack' dengan perintah finish() agar bisa kembali
+        //         ke halaman utama/riwayat dengan mulus.
         // ======================================================================
     }
 }

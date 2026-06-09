@@ -7,8 +7,8 @@
     android:layout_height="wrap_content"
     android:layout_marginHorizontal="16dp"
     android:layout_marginVertical="8dp"
-    app:cardCornerRadius="8dp"
-    app:cardElevation="2dp"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="4dp"
     app:cardBackgroundColor="@color/white">
 
     <LinearLayout
@@ -33,7 +33,7 @@
                 android:layout_height="wrap_content"
                 android:text="Polusi Air Sungai"
                 android:textColor="@color/blue_atma_luhur"
-                android:textSize="15sp"
+                android:textSize="16sp"
                 android:textStyle="bold" />
 
             <!-- 3. Status Laporan -->
@@ -44,7 +44,7 @@
                 android:layout_marginTop="6dp"
                 android:text="MENUNGGU TANGGAPAN"
                 android:textColor="#C29302"
-                android:textSize="13sp"
+                android:textSize="12sp"
                 android:textStyle="bold" />
 
             <!-- 4. Kategori Laporan -->
@@ -71,14 +71,14 @@
                     android:textSize="13sp" />
             </LinearLayout>
 
-            <!-- 5. Tanggapan Admin -->
+            <!-- 5. Tanggapan Admin (Dibuat melengkung/rounded rapi di dalam kartu) -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="10dp"
                 android:orientation="vertical"
-                android:padding="8dp"
-                android:background="#F8F9FA">
+                android:padding="10dp"
+                android:background="#F4F5F7">
 
                 <TextView
                     android:id="@+id/txtTanggapanAdmin"
@@ -95,7 +95,7 @@
                 android:id="@+id/txtTanggalPelaporan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="10dp"
                 android:text="Dilapor: 15 Juni 2026, 09:00:00 WIB"
                 android:textColor="#A2AAB2"
                 android:textSize="11sp" />
@@ -105,7 +105,7 @@
                 android:id="@+id/txtTanggalDitanggapi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
+                android:layout_marginTop="3dp"
                 android:text="Ditanggapi: --"
                 android:textColor="#A2AAB2"
                 android:textSize="11sp" />
@@ -121,18 +121,18 @@
             <!-- 2. Ikon Status / Kategori -->
             <ImageView
                 android:id="@+id/imgIkonStatus"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
                 android:contentDescription="Ikon Status"
                 android:src="@android:drawable/stat_sys_warning"
                 app:tint="#C29302"
-                android:layout_marginBottom="8dp"/>
+                android:layout_marginBottom="12dp"/>
 
-            <!-- Thumbnail Foto Bukti Mini (Sesuai Gambar Tim Kamu) -->
+            <!-- Thumbnail Foto Bukti Mini (Dibuat melengkung lebih serasi) -->
             <androidx.cardview.widget.CardView
                 android:layout_width="72dp"
                 android:layout_height="54dp"
-                app:cardCornerRadius="4dp"
+                app:cardCornerRadius="8dp"
                 app:cardElevation="0dp">
 
                 <ImageView

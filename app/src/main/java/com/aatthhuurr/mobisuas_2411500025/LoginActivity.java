@@ -41,10 +41,21 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         // ======================================================================
-        // TUGAS BACK-END TIM:
-        // Silakan lanjutkan casting findViewById dan logika onClick API di bawah nih ok ges!
-        // Semua komponen di atas (edtNoHp, edtPassword, btnLogin, chkRememberMe,
-        // btnGoogleLogin, btnFingerprint, btnFaceId) telah siap dieksekusi.
+        // TUGAS BACK-END TIM (PANDUAN PEMBAGIAN TUGAS):
+        //
+        // TODO 1: Lakukan casting findViewById untuk semua variabel di atas
+        //         (edtNoHp, edtPassword, btnLogin, chkRememberMe, btnGoogleLogin,
+        //         btnFingerprint, btnFaceId) sesuai ID yang ada di XML.
+        //
+        // TODO 2: Buat logika onClickListener pada 'btnLogin' untuk mengambil input
+        //         no HP & password, validasi, lalu hubungkan ke database/API login.
+        //
+        // TODO 3: Buat logika onClickListener pada 'btnGoogleLogin' untuk proses
+        //         autentikasi Google Sign-In Client.
+        //
+        // TODO 4: Panggil library 'androidx.biometric:biometric' dan pasang fungsinya
+        //         pada 'btnFingerprint' & 'btnFaceId' saat diklik untuk deteksi
+        //         sidik jari/wajah bawaan OS Android.
         // ======================================================================
 
     }
