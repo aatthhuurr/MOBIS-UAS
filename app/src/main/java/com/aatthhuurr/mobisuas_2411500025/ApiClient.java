@@ -5,7 +5,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ApiClient {
     // Ganti IP di bawah ini dengan IP Laptop kalian (buka cmd -> ketik ipconfig)
-    private static final String BASE_URL = "http://10.0.2.2/api_proyek/";
+    private static final String BASE_URL = "http://1.1.1.213/api_proyek/";
     private static Retrofit retrofit = null;
 
     public static ApiService getClient() {

@@ -2,6 +2,7 @@ package com.aatthhuurr.mobisuas_2411500025;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
 import androidx.activity.EdgeToEdge;
@@ -36,23 +37,32 @@ public class LoginActivity extends AppCompatActivity {
             return insets;
         });
 
-        // Casting ID berdasarkan XML kalian
+        // Inisialisasi komponen yang hanya dipakai saja gess
         edtNoHp = findViewById(R.id.edtNoHp);
         edtPassword = findViewById(R.id.edtPassword);
         btnLogin = findViewById(R.id.btnLogin);
         chkRememberMe = findViewById(R.id.chkRememberMe);
-        btnGoogleLogin = findViewById(R.id.btnGoogleLogin);
-        btnFingerprint = findViewById(R.id.btnFingerprint);
-        btnFaceId = findViewById(R.id.btnFaceId);
 
-        btnLogin.setOnClickListener(v -> {
-            String noHp = edtNoHp.getText().toString().trim();
-            String password = edtPassword.getText().toString().trim();
+        // Aksi Tombol Login Manual
+        btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String noHp = edtNoHp.getText().toString().trim();
+                String password = edtPassword.getText().toString().trim();
 
-            if (noHp.isEmpty() || password.isEmpty()) {
-                Toast.makeText(this, "Semua data wajib diisi!", Toast.LENGTH_SHORT).show();
-            } else {
-                // Panggil API Login sesuai skema gambar kalian
+                if (noHp.isEmpty()) {
+                    edtNoHp.setError("Nomor Handphone wajib diisi!");
+                    edtNoHp.requestFocus();
+                    return;
+                }
+
+                if (password.isEmpty()) {
+                    edtPassword.setError("Password wajib diisi!");
+                    edtPassword.requestFocus();
+                    return;
+                }
+
+                // Memanggil API Login ke Server PHP milik temanmu
                 ApiClient.getClient().login(noHp, password).enqueue(new Callback<LoginResponse>() {
                     @Override
                     public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
@@ -62,7 +72,7 @@ public class LoginActivity extends AppCompatActivity {
                             if (res.getStatus().equalsIgnoreCase("success")) {
                                 Toast.makeText(LoginActivity.this, "Login Berhasil!", Toast.LENGTH_SHORT).show();
 
-                                // Lempar ID User ke RiwayatActivity agar query SQL di PHP tepat sasaran
+                                // Pindah ke halaman riwayat gess
                                 Intent intent = new Intent(LoginActivity.this, RiwayatActivity.class);
                                 intent.putExtra("ID_USER", res.getIdUser());
                                 startActivity(intent);
