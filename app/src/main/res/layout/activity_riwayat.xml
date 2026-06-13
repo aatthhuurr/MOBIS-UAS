@@ -9,7 +9,6 @@
     android:background="@drawable/bg_app"
     tools:context=".RiwayatActivity">
 
-    <!-- HEADER / TOOLBAR -->
     <LinearLayout
         android:id="@+id/layoutHeader"
         android:layout_width="match_parent"
@@ -41,7 +40,6 @@
             android:textStyle="bold" />
     </LinearLayout>
 
-    <!-- GARIS PEMBATAS BATIK CUAL (Sentuhan Magis Kedaerahan Babel) -->
     <ImageView
         android:id="@+id/imgPembatasBatik"
         android:layout_width="match_parent"
@@ -53,7 +51,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- AREA SEARCH & FILTER (Diselaraskan dengan Radius 20dp & Warna Solid) -->
     <LinearLayout
         android:id="@+id/layoutSearchArea"
         android:layout_width="match_parent"
@@ -64,13 +61,11 @@
         android:gravity="center_vertical"
         app:layout_constraintTop_toBottomOf="@+id/imgPembatasBatik">
 
-        <!-- Input Cari Laporan (Rounded 20dp) -->
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/layoutSearch"
             style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:hint="Cari Laporan..."
             app:startIconDrawable="@android:drawable/ic_menu_search"
             app:startIconTint="@color/blue_atma_luhur"
@@ -93,35 +88,26 @@
                 android:textColor="@color/blue_atma_luhur" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Tombol Filter (Berubah menjadi Solid Berwarna Premium) -->
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnFilter"
-            android:layout_width="wrap_content"
-            android:layout_height="54dp"
-            android:layout_marginStart="12dp"
-            android:text="FILTER"
-            android:textColor="@color/white"
-            android:textStyle="bold"
-            app:backgroundTint="@color/blue_atma_luhur"
-            app:icon="@android:drawable/ic_menu_manage"
-            app:iconTint="@color/white"
-            app:cornerRadius="20dp"
-            android:elevation="4dp" />
     </LinearLayout>
 
-    <!-- LIST DAFTAR RECYCLERVIEW (Ditambahkan Padding Bawah agar tidak menabrak FAB) -->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvRiwayat"
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefresh"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="12dp"
-        android:clipToPadding="false"
-        android:paddingBottom="92dp"
-        tools:listitem="@layout/item_riwayat"
         app:layout_constraintTop_toBottomOf="@+id/layoutSearchArea"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintBottom_toBottomOf="parent">
 
-    <!-- TOMBOL TAMBAH MELAYANG (+) -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvRiwayat"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:paddingBottom="92dp"
+            tools:listitem="@layout/item_riwayat" />
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabTambahLaporan"
         android:layout_width="wrap_content"
